@@ -32,11 +32,11 @@ prosilicaConfig( "$(PORT1)", 10.1.18.37, 0, 0, 0, 0, 128)
 
 asynSetTraceIOMask("$(PORT1)",0,2)
 
-dbLoadRecords("$(ADCORE)/db/ADBase.template",   "P=$(PREFIX),R=cam36:,PORT=$(PORT1),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADCORE)/db/ADBase.template",   "P=$(PREFIX),R=cam37:,PORT=$(PORT1),ADDR=0,TIMEOUT=1")
 
 # Note that prosilica.template must be loaded after NDFile.template to replace the file format correctly
 
-dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=cam36:,PORT=$(PORT1),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=cam37:,PORT=$(PORT1),ADDR=0,TIMEOUT=1")
 
 
 # Create a standard arrays plugin, set it to get data from first Prosilica driver.

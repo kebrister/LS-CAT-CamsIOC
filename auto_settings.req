@@ -1,5 +1,6 @@
-file "ADBase_settings.req",         P=$(P),  R=cam37:
-file "prosilica_settings.req",      P=$(P),  R=cam37:
+file "ADBase_settings.req",         P=$(P),  R=cam29:
+file "prosilica_settings.req",      P=$(P),  R=cam29:
+
 file "NDPluginBase_settings.req",   P=$(P),  R=image1:
 file "NDStdArrays_settings.req",    P=$(P),  R=image1:
 
@@ -60,6 +61,9 @@ file "scan_settings.req",           P=$(P),  S=scan2
 file "scan_settings.req",           P=$(P),  S=scan3
 file "scan_settings.req",           P=$(P),  S=scan4
 file "sseq_settings.req",           P=$(P),  S=AcquireSequence
+
+file "NDPluginBase_settings.req"    P=$(P),  R=Edge1:
+file "NDOpenCV_settings.req",       P=$(P),  R=Edge1:
 
 $(P)userCalcOutEnable
 file "userCalcOuts10_settings.req", P=$(P)

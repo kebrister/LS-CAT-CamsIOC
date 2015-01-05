@@ -52,6 +52,7 @@ dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image1:,
 # cam34 is a Manta 146C with a resolution of 1388 X 1038 needing an array of 4,322,232 elements
 # cam35 is a Manta  46C with a resolution of  780 X  580 needing an array of 1,357,200 elements
 # cam36 is a Manta  46C with a resolution of  780 X  580 needing an array of 1,357,200 elements
+# cam37 is a Manta  46C with a resolution of  780 X  580 needing an array of 1,357,200 elements
 
 dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=SHORT,NELEMENTS=1357200")
 

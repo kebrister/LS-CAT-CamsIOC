@@ -1,0 +1,6 @@
+#! /bin/bash
+cd /usr/local/epics/LS-CAT-CamsIOC
+hn=`hostname`
+head=`redis-cli hget config.${hn,,} HEAD`
+sn=`redis-cli hget ${head}.config.shortname VALUE`
+/usr/local/epics/synApps_5_7/support/areaDetector/ADProsilica/iocs/prosilicaIOC/bin/linux-x86_64/prosilicaApp st-${sn}.cmd

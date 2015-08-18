@@ -1,17 +1,23 @@
 errlogInit(20000)
-epicsEnvSet("TOP",         "/usr/local/epics/synApps_5_7/support/areaDetector/ADProsilica/iocs/prosilicaIOC");
-epicsEnvSet("ADCORE",      "/usr/local/epics/synApps_5_7/support/areaDetector/ADCore");
-epicsEnvSet("ADPROSILICA", "/usr/local/epics/synApps_5_7/support/areaDetector/ADProsilica");
-epicsEnvSet("CALC",        "/usr/local/epics/synApps_5_7/support/calc-3-2");
-epicsEnvSet("SSCAN",       "/usr/local/epics/synApps_5_7/support/sscan-2-9");
-epicsEnvSet("AUTOSAVE",    "/usr/local/epics/synApps_5_7/support/autosave-5-1");
+epicsEnvSet("TOP",          "/usr/local/epics/synApps_5_8/support/areaDetector/ADProsilica/iocs/prosilicaIOC");
+epicsEnvSet("ADCORE",       "/usr/local/epics/synApps_5_8/support/areaDetector/ADCore");
+epicsEnvSet("ADPLUGINEDGE", "/usr/local/epics/synApps_5_8/support/areaDetector/ADPluginEdge");
+epicsEnvSet("ADPROSILICA",  "/usr/local/epics/synApps_5_8/support/areaDetector/ADProsilica");
+epicsEnvSet("CALC",         "/usr/local/epics/synApps_5_8/support/calc-3-4-2-1");
+epicsEnvSet("SSCAN",        "/usr/local/epics/synApps_5_8/support/sscan-2-10-1");
+epicsEnvSet("AUTOSAVE",     "/usr/local/epics/synApps_5_8/support/autosave-5-6-1");
+epicsEnvSet("STREAM_PROTOCOL_PATH", ".")
+epicsEnvSet("EPICS_DB_INCLUDE_PATH", "$(ADCORE)/db")
 
 dbLoadDatabase("$(TOP)/dbd/prosilicaApp.dbd")
 
 prosilicaApp_registerRecordDeviceDriver(pdbbase)
 
 epicsEnvSet("PREFIX", "21:ECAMS:")
+epicsEnvSet("CAM1",   "cam35:")
+epicsEnvSet("CAM2",   "cam34:")
 epicsEnvSet("PORT1",  "PS1")
+epicsEnvSet("PORT2",  "PS2")
 epicsEnvSet("QSIZE",  "20")
 epicsEnvSet("XSIZE",  "780")
 epicsEnvSet("YSIZE",  "580")
@@ -29,20 +35,29 @@ epicsEnvSet("NCHANS", "2048")
 # The Unique ID will be displayed on the first line in the information window.
 
 prosilicaConfig( "$(PORT1)", 10.1.18.35, 0, 0, 0, 0, 128)
+prosilicaConfig( "$(PORT2)", 10.1.18.34, 0, 0, 0, 0, 128)
 
 asynSetTraceIOMask("$(PORT1)",0,2)
+asynSetTraceIOMask("$(PORT2)",0,2)
 
-dbLoadRecords("$(ADCORE)/db/ADBase.template",   "P=$(PREFIX),R=cam35:,PORT=$(PORT1),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADCORE)/db/ADBase.template",   "P=$(PREFIX),R=cam35:,PORT=$(PORT1),ADDR=0,TIMEOUT=1",NDARRAY_PORT=$(PORT1))
+dbLoadRecords("$(ADCORE)/db/ADBase.template",   "P=$(PREFIX),R=cam34:,PORT=$(PORT2),ADDR=0,TIMEOUT=1",NDARRAY_PORT=$(PORT2))
 
 # Note that prosilica.template must be loaded after NDFile.template to replace the file format correctly
 
-dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=cam35:,PORT=$(PORT1),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=cam35:,PORT=$(PORT1),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1)")
+dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=cam34:,PORT=$(PORT2),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT2)")
 
 
 # Create a standard arrays plugin, set it to get data from first Prosilica driver.
 NDStdArraysConfigure("Image1", 5, 0, "$(PORT1)", 0, 0, 0, 0)
+NDStdArraysConfigure("Image2", 5, 0, "$(PORT2)", 0, 0, 0, 0)
 
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image2:,PORT=Image2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT2),NDARRAY_ADDR=0")
+
+dbLoadRecords("$(ADPLUGINEDGE)/ADApp/Db/NDEdge.template","P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+dbLoadRecords("$(ADPLUGINEDGE)/ADApp/Db/NDEdge.template","P=$(PREFIX),R=image2:,PORT=Image2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT2),NDARRAY_ADDR=0")
 
 # Use this line if you only want to use the Prosilica in 8-bit mode.  It uses an 8-bit waveform record
 # NELEMENTS is set large enough for a 1360x1024x3 image size, which is the number of pixels in RGB images from the GC1380CH color camera.
@@ -53,10 +68,10 @@ dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image1:,
 # cam35 is a Manta  46C with a resolution of  780 X  580 needing an array of 1,357,200 elements
 # cam36 is a Manta  46C with a resolution of  780 X  580 needing an array of 1,357,200 elements
 
-dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=SHORT,NELEMENTS=1357200")
+dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=SHORT,NELEMENTS=1357200,NDARRAY_PORT=$(PORT1)")
+dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image2:,PORT=Image2,ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=SHORT,NELEMENTS=4322232,NDARRAY_PORT=$(PORT2)")
 
-#dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int8,FTVL=UCHAR,NELEMENTS=1357200")
-
+< commonPlugins2.cmd
 < commonPlugins.cmd
 
 set_requestfile_path("$(ADPROSILICA)/prosilicaApp/Db")

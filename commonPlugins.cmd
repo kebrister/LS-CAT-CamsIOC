@@ -73,8 +73,7 @@ dbLoadRecords("$(ADCORE)/db/NDColorConvert.template", "P=$(PREFIX),R=CC2:,  PORT
 
 # Create 2 Edge Detectors
 NDEdgeConfigure("EDGE1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDPluginBase.template","P=$(PREFIX),R=Edge1:, PORT=EDGE1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-dbLoadRecords("$(ADCORE)/db/NDEdge.template","P=$(PREFIX),R=Edge1:, PORT=EDGE1,ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(ADCORE)/db/NDEdge.template","P=$(PREFIX),R=Edge1:, PORT=EDGE1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
 
 # Load scan records
 dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db", "P=$(PREFIX),MAXPTS1=2000,MAXPTS2=200,MAXPTS3=20,MAXPTS4=10,MAXPTSH=10")

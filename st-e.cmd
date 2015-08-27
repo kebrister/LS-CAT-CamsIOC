@@ -56,8 +56,8 @@ NDStdArraysConfigure("Image2", 5, 0, "$(PORT2)", 0, 0, 0, 0)
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
 dbLoadRecords("$(ADCORE)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image2:,PORT=Image2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT2),NDARRAY_ADDR=0")
 
-dbLoadRecords("$(ADPLUGINEDGE)/ADApp/Db/NDEdge.template","P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-dbLoadRecords("$(ADPLUGINEDGE)/ADApp/Db/NDEdge.template","P=$(PREFIX),R=image2:,PORT=Image2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT2),NDARRAY_ADDR=0")
+dbLoadRecords("$(ADPLUGINEDGE)/edgeApp/Db/NDEdge.template","P=$(PREFIX),R=Edge1:,PORT=EDGE1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+dbLoadRecords("$(ADPLUGINEDGE)/edgeApp/Db/NDEdge.template","P=$(PREFIX),R=Edge2:,PORT=EDGE2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT2),NDARRAY_ADDR=0")
 
 # Use this line if you only want to use the Prosilica in 8-bit mode.  It uses an 8-bit waveform record
 # NELEMENTS is set large enough for a 1360x1024x3 image size, which is the number of pixels in RGB images from the GC1380CH color camera.
@@ -75,6 +75,7 @@ dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image2:,PORT=I
 < commonPlugins.cmd
 
 set_requestfile_path("$(ADPROSILICA)/prosilicaApp/Db")
+set_requestfile_path("$(ADPLUGINEDGE)/edgeApp/Db")
 
 iocInit()
 

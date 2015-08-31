@@ -1,5 +1,4 @@
-file "ADBase_settings.req",         P=$(P),  R=cam35:
-file "prosilica_settings.req",      P=$(P),  R=cam35:
+file "prosilica_settings.req",      P=$(P),  R=Spindle:
 
 file "NDStdArrays_settings.req",    P=$(P),  R=image1:
 
@@ -13,16 +12,16 @@ file "NDFile_settings.req",         P=$(P),  R=Magick1:
 file "NDFileMagick_settings.req",   P=$(P),  R=Magick1:
 file "NDFile_settings.req",         P=$(P),  R=HDF1:
 file "NDFileHDF5_settings.req",     P=$(P),  R=HDF1:
-file "NDROI_settings.req",          P=$(P),  R=ROI1:
-file "NDROI_settings.req",          P=$(P),  R=ROI2:
-file "NDROI_settings.req",          P=$(P),  R=ROI3:
-file "NDROI_settings.req",          P=$(P),  R=ROI4:
+file "NDROI_settings.req",          P=$(P),  R=ROI11:
+file "NDROI_settings.req",          P=$(P),  R=ROI12:
+file "NDROI_settings.req",          P=$(P),  R=ROI13:
+file "NDROI_settings.req",          P=$(P),  R=ROI14:
 file "NDProcess_settings.req",      P=$(P),  R=Proc1:
-file "NDStats_settings.req",        P=$(P),  R=Stats1:
-file "NDStats_settings.req",        P=$(P),  R=Stats2:
-file "NDStats_settings.req",        P=$(P),  R=Stats3:
-file "NDStats_settings.req",        P=$(P),  R=Stats4:
-file "NDStats_settings.req",        P=$(P),  R=Stats5:
+file "NDStats_settings.req",        P=$(P),  R=Stats11:
+file "NDStats_settings.req",        P=$(P),  R=Stats12:
+file "NDStats_settings.req",        P=$(P),  R=Stats13:
+file "NDStats_settings.req",        P=$(P),  R=Stats14:
+file "NDStats_settings.req",        P=$(P),  R=Stats15:
 file "NDTransform_settings.req",    P=$(P),  R=Trans1:
 file "NDOverlay_settings.req",      P=$(P),  R=Over1:
 file "NDOverlayN_settings.req",     P=$(P),  R=Over1:1:
@@ -33,8 +32,8 @@ file "NDOverlayN_settings.req",     P=$(P),  R=Over1:5:
 file "NDOverlayN_settings.req",     P=$(P),  R=Over1:6:
 file "NDOverlayN_settings.req",     P=$(P),  R=Over1:7:
 file "NDOverlayN_settings.req",     P=$(P),  R=Over1:8:
-file "NDColorConvert_settings.req", P=$(P),  R=CC1:
-file "NDColorConvert_settings.req", P=$(P),  R=CC2:
+file "NDColorConvert_settings.req", P=$(P),  R=CC11:
+file "NDColorConvert_settings.req", P=$(P),  R=CC12:
 file "scan_settings.req",           P=$(P),  S=scan1
 file "scan_settings.req",           P=$(P),  S=scan2
 file "scan_settings.req",           P=$(P),  S=scan3
@@ -43,8 +42,7 @@ file "sseq_settings.req",           P=$(P),  S=AcquireSequence
 
 file "NDEdge_settings.req",   P=$(P),  R=Edge1:
 
-file "ADBase_settings.req",         P=$(P),  R=cam34:
-file "prosilica_settings.req",      P=$(P),  R=cam34:
+file "prosilica_settings.req",      P=$(P),  R=Sample:
 
 file "NDStdArrays_settings.req",    P=$(P),  R=image2:
 

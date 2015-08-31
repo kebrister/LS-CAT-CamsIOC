@@ -1,0 +1,25 @@
+#! /bin/bash
+
+hn=`hostname`
+head=`redis-cli hget config.${hn,,} HEAD`
+sn=`redis-cli hget ${head}.config.shortname VALUE`
+P="21:${sn^}CAMS:"
+
+
+export SUPPORT=/usr/local/epics/synApps_5_8/support
+export AD=$SUPPORT/areaDetector
+export EPICS_DISPLAY_PATH=/usr/local/epics/LS-CAT-CamsIOC/adl:$AD/ADPluginEdge/edgeApp/op/adl:$SUPPORT/calc-3-4-2-1/calcApp/op/adl:/usr/local/epics/synApps_5_8/support/asyn-4-26/opi/medm
+export EPICS_CA_ADDR_LIST="10.1.255.255 164.54.252.2"
+export EPICS_CA_AUTO_ADDR_LIST=no
+
+echo "SUPPORT: " $SUPPORT
+echo "AD:" $AD
+echo "EPICS_DISPLAY_PATH: "$EPICS_DISPLAY_PATH
+
+medm -x -macro "P=$P" userCalcOuts10.adl &
+
+medm -x -macro "P=$P,R=Spindle:,CP=1" prosilica.adl &
+medm -x -macro "P=$P,R=Edge1:,CP=1" NDPluginEdge.adl  &
+
+medm -x -macro "P=$P,R=Sample:,CP=2" prosilica.adl &
+medm -x -macro "P=$P,R=Edge2:,CP=2" NDPluginEdge.adl  &

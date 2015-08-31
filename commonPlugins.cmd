@@ -1,95 +1,103 @@
 # Create a netCDF file saving plugin.
-NDFileNetCDFConfigure("FileNetCDF1", $(QSIZE), 0, "$(PORT1)", 0)
-dbLoadRecords("$(ADCORE)/db/NDFileNetCDF.template","P=$(PREFIX),R=netCDF1:,PORT=FileNetCDF1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDFileNetCDFConfigure("FileNetCDF$(CP)", $(QSIZE), 0, "$(PORT)", 0)
+dbLoadRecords("NDFileNetCDF.template","P=$(PREFIX),R=netCDF$(CP):,PORT=FileNetCDF$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create a TIFF file saving plugin
-NDFileTIFFConfigure("FileTIFF1", $(QSIZE), 0, "$(PORT1)", 0)
-dbLoadRecords("$(ADCORE)/db/NDFileTIFF.template",  "P=$(PREFIX),R=TIFF1:,PORT=FileTIFF1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDFileTIFFConfigure("FileTIFF$(CP)", $(QSIZE), 0, "$(PORT)", 0)
+dbLoadRecords("NDFileTIFF.template",  "P=$(PREFIX),R=TIFF$(CP):,PORT=FileTIFF$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create a JPEG file saving plugin
-NDFileJPEGConfigure("FileJPEG1", $(QSIZE), 0, "$(PORT1)", 0)
-dbLoadRecords("$(ADCORE)/db/NDFileJPEG.template",  "P=$(PREFIX),R=JPEG1:,PORT=FileJPEG1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDFileJPEGConfigure("FileJPEG$(CP)", $(QSIZE), 0, "$(PORT)", 0)
+dbLoadRecords("NDFileJPEG.template",  "P=$(PREFIX),R=JPEG$(CP):,PORT=FileJPEG$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create a NeXus file saving plugin
-NDFileNexusConfigure("FileNexus1", $(QSIZE), 0, "$(PORT1)", 0)
-dbLoadRecords("$(ADCORE)/db/NDFileNexus.template", "P=$(PREFIX),R=Nexus1:,PORT=FileNexus1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDFileNexusConfigure("FileNexus$(CP)", $(QSIZE), 0, "$(PORT)", 0)
+dbLoadRecords("NDFileNexus.template", "P=$(PREFIX),R=Nexus$(CP):,PORT=FileNexus$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create an HDF5 file saving plugin
-NDFileHDF5Configure("FileHDF1", $(QSIZE), 0, "$(PORT1)", 0)
-dbLoadRecords("$(ADCORE)/db/NDFileHDF5.template",  "P=$(PREFIX),R=HDF1:,PORT=FileHDF1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDFileHDF5Configure("FileHDF$(CP)", $(QSIZE), 0, "$(PORT)", 0)
+dbLoadRecords("NDFileHDF5.template",  "P=$(PREFIX),R=HDF$(CP):,PORT=FileHDF$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create a Magick file saving plugin
-NDFileMagickConfigure("FileMagick1", $(QSIZE), 0, "$(PORT1)", 0)
-dbLoadRecords("$(ADCORE)/db/NDFileMagick.template","P=$(PREFIX),R=Magick1:,PORT=FileMagick1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDFileMagickConfigure("FileMagick$(CP)", $(QSIZE), 0, "$(PORT)", 0)
+dbLoadRecords("NDFileMagick.template","P=$(PREFIX),R=Magick$(CP):,PORT=FileMagick$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create 4 ROI plugins
-NDROIConfigure("ROI1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDROI.template",       "P=$(PREFIX),R=ROI1:,  PORT=ROI1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDROIConfigure("ROI2", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDROI.template",       "P=$(PREFIX),R=ROI2:,  PORT=ROI2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDROIConfigure("ROI3", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDROI.template",       "P=$(PREFIX),R=ROI3:,  PORT=ROI3,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDROIConfigure("ROI4", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDPluginBase.template","P=$(PREFIX),R=ROI4:,  PORT=ROI4,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-dbLoadRecords("$(ADCORE)/db/NDROI.template",       "P=$(PREFIX),R=ROI4:,  PORT=ROI4,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDROIConfigure("ROI$(CP)1", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDROI.template",       "P=$(PREFIX),R=ROI$(CP)1:,  PORT=ROI$(CP)1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
+NDROIConfigure("ROI$(CP)2", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDROI.template",       "P=$(PREFIX),R=ROI$(CP)2:,  PORT=ROI$(CP)2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
+NDROIConfigure("ROI$(CP)3", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDROI.template",       "P=$(PREFIX),R=ROI$(CP)3:,  PORT=ROI$(CP)3,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
+NDROIConfigure("ROI$(CP)4", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDROI.template",       "P=$(PREFIX),R=ROI$(CP)4:,  PORT=ROI$(CP)4,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
+
+# Create 8 ROIStat plugins
+NDROIStatConfigure("ROISTAT$(CP)", $(QSIZE), 0, "$(PORT)", 0, 8, 0, 0)
+dbLoadRecords("NDROIStat.template",   "P=$(PREFIX),R=ROIStat$(CP):  ,PORT=ROISTAT$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT),NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):1:,PORT=ROISTAT$(CP),ADDR=0,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):2:,PORT=ROISTAT$(CP),ADDR=1,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):3:,PORT=ROISTAT$(CP),ADDR=2,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):4:,PORT=ROISTAT$(CP),ADDR=3,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):5:,PORT=ROISTAT$(CP),ADDR=4,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):6:,PORT=ROISTAT$(CP),ADDR=5,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):7:,PORT=ROISTAT$(CP),ADDR=6,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDROIStatN.template",  "P=$(PREFIX),R=ROIStat$(CP):8:,PORT=ROISTAT$(CP),ADDR=7,TIMEOUT=1,NCHANS=$(NCHANS)")
 
 # Create a processing plugin
-NDProcessConfigure("PROC1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDProcess.template",   "P=$(PREFIX),R=Proc1:,  PORT=PROC1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDProcessConfigure("PROC$(CP)", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDProcess.template",   "P=$(PREFIX),R=Proc$(CP):,  PORT=PROC$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create 5 statistics plugins
-NDStatsConfigure("STATS1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDStats.template",     "P=$(PREFIX),R=Stats1:,  PORT=STATS1,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDStatsConfigure("STATS2", $(QSIZE), 0, "ROI1", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDStats.template",     "P=$(PREFIX),R=Stats2:,  PORT=STATS2,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDStatsConfigure("STATS3", $(QSIZE), 0, "ROI2", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDStats.template",     "P=$(PREFIX),R=Stats3:,  PORT=STATS3,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDStatsConfigure("STATS4", $(QSIZE), 0, "ROI3", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDStats.template",     "P=$(PREFIX),R=Stats4:,  PORT=STATS4,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDStatsConfigure("STATS5", $(QSIZE), 0, "ROI4", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDStats.template",     "P=$(PREFIX),R=Stats5:,  PORT=STATS5,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDStatsConfigure("STATS$(CP)1", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats$(CP)1:,  PORT=STATS$(CP)1,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT)")
+NDStatsConfigure("STATS$(CP)2", $(QSIZE), 0, "ROI$(CP)1", 0, 0, 0)
+dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats$(CP)2:,  PORT=STATS$(CP)2,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT)")
+NDStatsConfigure("STATS$(CP)3", $(QSIZE), 0, "ROI$(CP)2", 0, 0, 0)
+dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats$(CP)3:,  PORT=STATS$(CP)3,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT)")
+NDStatsConfigure("STATS$(CP)4", $(QSIZE), 0, "ROI$(CP)3", 0, 0, 0)
+dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats$(CP)4:,  PORT=STATS$(CP)4,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT)")
+NDStatsConfigure("STATS$(CP)5", $(QSIZE), 0, "ROI$(CP)4", 0, 0, 0)
+dbLoadRecords("NDStats.template",     "P=$(PREFIX),R=Stats$(CP)5:,  PORT=STATS$(CP)5,ADDR=0,TIMEOUT=1,HIST_SIZE=256,XSIZE=$(XSIZE),YSIZE=$(YSIZE),NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT)")
 
 # Create a transform plugin
-NDTransformConfigure("TRANS1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDTransform.template", "P=$(PREFIX),R=Trans1:,  PORT=TRANS1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDTransformConfigure("TRANS$(CP)", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDTransform.template", "P=$(PREFIX),R=Trans$(CP):,  PORT=TRANS$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
 # Create an overlay plugin with 8 overlays
-NDOverlayConfigure("OVER1", $(QSIZE), 0, "$(PORT1)", 0, 8, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDOverlay.template",   "P=$(PREFIX),R=Over1:, PORT=OVER1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:1:,NAME=ROI1,   SHAPE=1,O=Over1:,XPOS=$(PREFIX)ROI1:MinX_RBV,YPOS=$(PREFIX)ROI1:MinY_RBV,XSIZE=$(PREFIX)ROI1:SizeX_RBV,YSIZE=$(PREFIX)ROI1:SizeY_RBV,PORT=OVER1,ADDR=0,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:2:,NAME=ROI2,   SHAPE=1,O=Over1:,XPOS=$(PREFIX)ROI2:MinX_RBV,YPOS=$(PREFIX)ROI2:MinY_RBV,XSIZE=$(PREFIX)ROI2:SizeX_RBV,YSIZE=$(PREFIX)ROI2:SizeY_RBV,PORT=OVER1,ADDR=1,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:3:,NAME=ROI3,   SHAPE=1,O=Over1:,XPOS=$(PREFIX)ROI3:MinX_RBV,YPOS=$(PREFIX)ROI3:MinY_RBV,XSIZE=$(PREFIX)ROI3:SizeX_RBV,YSIZE=$(PREFIX)ROI3:SizeY_RBV,PORT=OVER1,ADDR=2,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:4:,NAME=ROI4,   SHAPE=1,O=Over1:,XPOS=$(PREFIX)ROI4:MinX_RBV,YPOS=$(PREFIX)ROI4:MinY_RBV,XSIZE=$(PREFIX)ROI4:SizeX_RBV,YSIZE=$(PREFIX)ROI4:SizeY_RBV,PORT=OVER1,ADDR=3,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:5:,NAME=Cursor1,SHAPE=1,O=Over1:,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER1,ADDR=4,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:6:,NAME=Cursor2,SHAPE=1,O=Over1:,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER1,ADDR=5,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:7:,NAME=Box1,   SHAPE=1,O=Over1:,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER1,ADDR=6,TIMEOUT=1")
-dbLoadRecords("$(ADCORE)/db/NDOverlayN.template","P=$(PREFIX),R=Over1:8:,NAME=Box2,   SHAPE=1,O=Over1:,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER1,ADDR=7,TIMEOUT=1")
+NDOverlayConfigure("OVER$(CP)", $(QSIZE), 0, "$(PORT)", 0, 8, 0, 0)
+dbLoadRecords("NDOverlay.template", "P=$(PREFIX),R=Over$(CP):, PORT=OVER$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):1:,NAME=ROI$(CP)1,   SHAPE=1,O=Over$(CP):,XPOS=$(PREFIX)ROI$(CP)1:MinX_RBV,YPOS=$(PREFIX)ROI$(CP)1:MinY_RBV,XSIZE=$(PREFIX)ROI$(CP)1:SizeX_RBV,YSIZE=$(PREFIX)ROI$(CP)1:SizeY_RBV,PORT=OVER$(CP),ADDR=0,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):2:,NAME=ROI$(CP)2,   SHAPE=1,O=Over$(CP):,XPOS=$(PREFIX)ROI$(CP)2:MinX_RBV,YPOS=$(PREFIX)ROI$(CP)2:MinY_RBV,XSIZE=$(PREFIX)ROI$(CP)2:SizeX_RBV,YSIZE=$(PREFIX)ROI$(CP)2:SizeY_RBV,PORT=OVER$(CP),ADDR=1,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):3:,NAME=ROI$(CP)3,   SHAPE=1,O=Over$(CP):,XPOS=$(PREFIX)ROI$(CP)3:MinX_RBV,YPOS=$(PREFIX)ROI$(CP)3:MinY_RBV,XSIZE=$(PREFIX)ROI$(CP)3:SizeX_RBV,YSIZE=$(PREFIX)ROI$(CP)3:SizeY_RBV,PORT=OVER$(CP),ADDR=2,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):4:,NAME=ROI$(CP)4,   SHAPE=1,O=Over$(CP):,XPOS=$(PREFIX)ROI$(CP)4:MinX_RBV,YPOS=$(PREFIX)ROI$(CP)4:MinY_RBV,XSIZE=$(PREFIX)ROI$(CP)4:SizeX_RBV,YSIZE=$(PREFIX)ROI$(CP)4:SizeY_RBV,PORT=OVER$(CP),ADDR=3,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):5:,NAME=Cursor1,SHAPE=1,O=Over$(CP):,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER$(CP),ADDR=4,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):6:,NAME=Cursor2,SHAPE=1,O=Over$(CP):,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER$(CP),ADDR=5,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):7:,NAME=Box1,   SHAPE=1,O=Over$(CP):,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER$(CP),ADDR=6,TIMEOUT=1")
+dbLoadRecords("NDOverlayN.template","P=$(PREFIX),R=Over$(CP):8:,NAME=Box2,   SHAPE=1,O=Over$(CP):,XPOS=junk,                  YPOS=junk,                  XSIZE=junk,                   YSIZE=junk,                   PORT=OVER$(CP),ADDR=7,TIMEOUT=1")
 
 # Create 2 color conversion plugins
-NDColorConvertConfigure("CC1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDColorConvert.template", "P=$(PREFIX),R=CC1:,  PORT=CC1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
-NDColorConvertConfigure("CC2", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDColorConvert.template", "P=$(PREFIX),R=CC2:,  PORT=CC2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+NDColorConvertConfigure("CC$(CP)1", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDColorConvert.template", "P=$(PREFIX),R=CC$(CP)1:,  PORT=CC$(CP)1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
+NDColorConvertConfigure("CC$(CP)2", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("NDColorConvert.template", "P=$(PREFIX),R=CC$(CP)2:,  PORT=CC$(CP)2,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
-# Create 2 Edge Detectors
-NDEdgeConfigure("EDGE1", $(QSIZE), 0, "$(PORT1)", 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDEdge.template","P=$(PREFIX),R=Edge1:, PORT=EDGE1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT1),NDARRAY_ADDR=0")
+# Create a circular buffer plugin
+#NDCircularBuffConfigure("CB$(CP)", $(QSIZE), 0, "$(PORT)", 0, $(CBUFFS), 0)
+#dbLoadRecords("NDCircularBuff.template", "P=$(PREFIX),R=CB$(CP):,  PORT=CB$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT)")
 
-# Load scan records
-dbLoadRecords("$(SSCAN)/sscanApp/Db/scan.db", "P=$(PREFIX),MAXPTS1=2000,MAXPTS2=200,MAXPTS3=20,MAXPTS4=10,MAXPTSH=10")
+# Create an NDAttribute plugin with 8 attributes
+NDAttrConfigure("ATTR$(CP)", $(QSIZE), 0, "$(PORT)", 0, 8, 0, 0, 0)
+dbLoadRecords("NDAttribute.template",  "P=$(PREFIX),R=Attr$(CP):,    PORT=ATTR$(CP),ADDR=0,TIMEOUT=1,NCHANS=$(NCHANS),NDARRAY_PORT=$(PORT)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):1:,  PORT=ATTR$(CP),ADDR=0,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):2:,  PORT=ATTR$(CP),ADDR=1,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):3:,  PORT=ATTR$(CP),ADDR=2,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):4:,  PORT=ATTR$(CP),ADDR=3,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):5:,  PORT=ATTR$(CP),ADDR=4,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):6:,  PORT=ATTR$(CP),ADDR=5,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):7:,  PORT=ATTR$(CP),ADDR=6,TIMEOUT=1,NCHANS=$(NCHANS)")
+dbLoadRecords("NDAttributeN.template", "P=$(PREFIX),R=Attr$(CP):8:,  PORT=ATTR$(CP),ADDR=7,TIMEOUT=1,NCHANS=$(NCHANS)")
 
-# Load sseq record for acquisition sequence
-dbLoadRecords("$(CALC)/calcApp/Db/yySseq.db", "P=$(PREFIX), S=AcquireSequence")
-
-# Calc record reset frame count
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db", "P=$(PREFIX)")
-
-set_requestfile_path("./")
-set_requestfile_path("$(ADCORE)/ADApp/Db")
-set_requestfile_path("$(CALC)/calcApp/Db")
-set_requestfile_path("$(SSCAN)/sscanApp/Db")
-set_savefile_path("./autosave")
-set_pass0_restoreFile("auto_settings.sav")
-set_pass1_restoreFile("auto_settings.sav")
-save_restoreSet_status_prefix("$(PREFIX)")
-dbLoadRecords("$(AUTOSAVE)/asApp/Db/save_restoreStatus.db", "P=$(PREFIX)")
+# Create Edge Detector
+NDEdgeConfigure("EDGE$(CP)", $(QSIZE), 0, "$(PORT)", 0, 0, 0)
+dbLoadRecords("$(ADCORE)/db/NDEdge.template","P=$(PREFIX),R=Edge$(CP):, PORT=EDGE$(CP),ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT),NDARRAY_ADDR=0")

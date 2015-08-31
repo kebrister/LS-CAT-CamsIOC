@@ -1,6 +1,6 @@
 
 file {
-	name="/home/epics/devel-AD2.0/areaDetector/ADCore/ADApp/op/adl/ADPlugins.adl"
+	name="/home/epics/devel/areaDetector/ADCore/ADApp/op/adl/ADPlugins.adl"
 	version=030107
 }
 display {
@@ -190,39 +190,39 @@ text {
 		height=20
 	}
 	display[0] {
-		label="netCDF file #2"
+		label="netCDF file #$(CP)"
 		name="NDFileNetCDF.adl"
-		args="P=$(P), R=netCDF2:"
+		args="P=$(P), R=netCDF$(CP):, EXT=nc"
 	}
 	display[1] {
-		label="TIFF file #2"
+		label="TIFF file #$(CP)"
 		name="NDFileTIFF.adl"
-		args="P=$(P), R=TIFF2:"
+		args="P=$(P), R=TIFF$(CP):, EXT=tif"
 	}
 	display[2] {
-		label="JPEG file #2"
+		label="JPEG file #$(CP)"
 		name="NDFileJPEG.adl"
-		args="P=$(P), R=JPEG2:"
+		args="P=$(P), R=JPEG$(CP):, EXT=jpg"
 	}
 	display[3] {
-		label="NeXus file #2"
+		label="NeXus file #$(CP)"
 		name="NDFileNexus.adl"
-		args="P=$(P), R=Nexus2:"
+		args="P=$(P), R=Nexus$(CP):, EXT=h5"
 	}
 	display[4] {
-		label="Magick file #2"
+		label="Magick file #$(CP)"
 		name="NDFileMagick.adl"
-		args="P=$(P), R=Magick2:"
+		args="P=$(P), R=Magick$(CP):, EXT=tif"
 	}
 	display[5] {
-		label="HDF5 file #2"
+		label="HDF5 file #$(CP)"
 		name="NDFileHDF5.adl"
-		args="P=$(P), R=HDF2:"
+		args="P=$(P), R=HDF$(CP):, EXT=h5"
 	}
 	display[6] {
-		label="Null file #2"
+		label="Null file #$(CP)"
 		name="NDFileNull.adl"
-		args="P=$(P), R=Null2:"
+		args="P=$(P), R=Null$(CP):, EXT=null"
 	}
 	clr=14
 	bclr=51
@@ -235,34 +235,34 @@ text {
 		height=20
 	}
 	display[0] {
-		label="Statistics #1"
+		label="Statistics $(CP) #1)"
 		name="NDStats.adl"
-		args="P=$(P), R=Stats1:"
+		args="P=$(P), R=Stats$(CP)1:"
 	}
 	display[1] {
-		label="Statistics #2"
+		label="Statistics $(CP) #2"
 		name="NDStats.adl"
-		args="P=$(P), R=Stats2:"
+		args="P=$(P), R=Stats$(CP)2:"
 	}
 	display[2] {
-		label="Statistics #3"
+		label="Statistics $(CP) #3"
 		name="NDStats.adl"
-		args="P=$(P), R=Stats3:"
+		args="P=$(P), R=Stats$(CP)3:"
 	}
 	display[3] {
-		label="Statistics #4"
+		label="Statistics $(CP) #4"
 		name="NDStats.adl"
-		args="P=$(P), R=Stats4:"
+		args="P=$(P), R=Stats$(CP)4:"
 	}
 	display[4] {
-		label="Statistics #5"
+		label="Statistics $(CP) #5"
 		name="NDStats.adl"
-		args="P=$(P), R=Stats5:"
+		args="P=$(P), R=Stats$(CP)5:"
 	}
 	display[5] {
 		label="Statistics 1-5"
 		name="NDStats5.adl"
-		args="P=$(P), R1=Stats1:,R2=Stats2:,R3=Stats3:,R4=Stats4:,R5=Stats5:"
+		args="P=$(P), R1=Stats$(CP)1:,R2=Stats$(CP)2:,R3=Stats$(CP)3:,R4=Stats$(CP)4:,R5=Stats$(CP)5:"
 	}
 	clr=14
 	bclr=51
@@ -275,29 +275,29 @@ text {
 		height=20
 	}
 	display[0] {
-		label="ROI #1"
+		label="ROI $(CP) #1"
 		name="NDROI.adl"
-		args="P=$(P), R=ROI1:"
+		args="P=$(P), R=ROI$(CP)1:"
 	}
 	display[1] {
-		label="ROI #2"
+		label="ROI $(CP) #2"
 		name="NDROI.adl"
-		args="P=$(P), R=ROI2:"
+		args="P=$(P), R=ROI$(CP)2:"
 	}
 	display[2] {
-		label="ROI #3"
+		label="ROI $(CP) #3"
 		name="NDROI.adl"
-		args="P=$(P), R=ROI3:"
+		args="P=$(P), R=ROI$(CP)3:"
 	}
 	display[3] {
-		label="ROI #4"
+		label="ROI $(CP) #4"
 		name="NDROI.adl"
-		args="P=$(P), R=ROI4:"
+		args="P=$(P), R=ROI$(CP)4:"
 	}
 	display[4] {
-		label="ROI 1-4 combined"
+		label="ROI $(CP)  1-4 combined"
 		name="NDROI4.adl"
-		args="P=$(P), R1=ROI1:,R2=ROI2:, R3=ROI3:,R4=ROI4:"
+		args="P=$(P), R1=ROI$(CP)1:,R2=ROI$(CP)2:, R3=ROI$(CP)3:,R4=ROI$(CP)4:"
 	}
 	clr=14
 	bclr=51
@@ -310,39 +310,69 @@ text {
 		height=20
 	}
 	display[0] {
-		label="Image #2"
+		label="Image #$(CP)"
 		name="NDStdArrays.adl"
-		args="P=$(P), R=image2:"
+		args="P=$(P), R=image$(CP):"
 	}
 	display[1] {
-		label="Process #2"
+		label="Process #$(CP)"
 		name="NDProcess.adl"
-		args="P=$(P), R=Proc2:"
+		args="P=$(P), R=Proc$(CP):"
 	}
 	display[2] {
-		label="Transform #2"
+		label="Transform #$(CP)"
 		name="NDTransform.adl"
-		args="P=$(P), R=Trans2:"
+		args="P=$(P), R=Trans$(CP):"
 	}
 	display[3] {
-		label="Color convert #21"
+		label="Color convert $(CP) #1"
 		name="NDColorConvert.adl"
-		args="P=$(P), R=CC21:"
+		args="P=$(P), R=CC$(CP)1:"
 	}
 	display[4] {
-		label="Color convert #22"
+		label="Color convert $(CP) #2"
 		name="NDColorConvert.adl"
-		args="P=$(P), R=CC22:"
+		args="P=$(P), R=CC$(CP)2:"
 	}
 	display[5] {
-		label="Overlay #2"
+		label="Overlay $(CP) #1"
 		name="NDOverlay.adl"
-		args="P=$(P), R=Over2:"
+		args="P=$(P), R=Over$(CP):"
 	}
 	display[6] {
-		label="Overlays 1-8"
+		label="Overlays $(CP) 1-8"
 		name="NDOverlay8.adl"
-		args="P=$(P), R=Over2:,O1=Over2:1:,O2=Over2:2:,O3=Over2:3:,O4=Over2:4:,O5=Over2:5:,O6=Over2:6:,O7=Over2:7:,O8=Over2:8:"
+		args="P=$(P), R=Over$(CP):,O1=Over$(CP):1:,O2=Over$(CP):2:,O3=Over$(CP):3:,O4=Over$(CP):4:,O5=Over$(CP):5:,O6=Over$(CP):6:,O7=Over$(CP):7:,O8=Over$(CP):8:"
+	}
+	display[7] {
+		label="Circular buffer #$(CP)"
+		name="NDCircularBuff.adl"
+		args="P=$(P), R=CB$(CP):"
+	}
+	display[8] {
+		label="ROI Statistics #$(CP)"
+		name="NDROIStat.adl"
+		args="P=$(P), R=ROIStat$(CP):"
+	}
+	display[9] {
+		label="Attribute #$(CP)"
+		name="NDPluginAttribute.adl"
+		args="P=$(P), R=Attr$(CP):"
+	}
+	display[10] {
+		label="Scan #$(CP)"
+		name="scan_more.adl"
+		args="P=$(P), S=scan$(CP), N=1"
+	}
+	display[11] {
+		label="Acquire Sequence"
+		name="yySseq.adl"
+		args="P=$(P), S=AcquireSequence"
+	}
+	display[12] {
+		label="devIocStats"
+		name="ioc_stats_soft.adl"
+		args="ioc=$(P)"
 	}
 	clr=14
 	bclr=51
@@ -355,8 +385,8 @@ text {
 		height=20
 	}
 	display[0] {
-		label="Common plugins2"
-		name="commonPlugins2.adl"
+		label="Common plugins"
+		name="commonPlugins.adl"
 		args="P=$(P)"
 	}
 	clr=14

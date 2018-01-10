@@ -18,7 +18,8 @@ dbLoadRecords("$(ADPROSILICA)/db/prosilica.template","P=$(PREFIX),R=$(CAM),PORT=
 
 # Create a standard arrays plugin, set it to get data from first Prosilica driver.
 NDStdArraysConfigure("Image$(CP)", 5, 0, "$(PORT)", 0, 0, 0, 0)
-dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image$(CP):,PORT=Image$(CP),ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=SHORT,NELEMENTS=$(NDARRAY_LENGTH),NDARRAY_PORT=$(PORT)")
+
+dbLoadRecords("$(ADCORE)/db/NDStdArrays.template", "P=$(PREFIX),R=image$(CP):,PORT=Image$(CP),ADDR=0,TIMEOUT=1,TYPE=Int8,FTVL=UCHAR,NELEMENTS=$(NDARRAY_LENGTH),NDARRAY_PORT=$(PORT)")
 
 < commonPlugins.cmd
 

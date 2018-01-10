@@ -45,14 +45,14 @@ epicsEnvSet( "CBUFFS", "16")
 # Spindle Camera Settings
 #
 epicsEnvSet( "CAM",            "Spindle:")
-epicsEnvSet( "CAM_IP",         "10.1.18.29")
+epicsEnvSet( "CAM_IP",         "10.1.18.38")
 epicsEnvSet( "PORT",           "PS1")
 epicsEnvSet( "Image",          "Image1")
 epicsEnvSet( "Edge",           "Edge1")
 epicsEnvSet( "NDARRAY_LENGTH", "1357200")
 epicsEnvSet( "NDPORT",         "PORT1")
-epicsEnvSet( "XSIZE",          "780")
-epicsEnvSet( "YSIZE",          "580")
+epicsEnvSet( "XSIZE",          "1388")
+epicsEnvSet( "YSIZE",          "1038")
 epicsEnvSet( "CP",             "1")		# commonPlugs.cmd kludge to set up more than one camera on the same ioc
 
 
@@ -63,14 +63,14 @@ epicsEnvSet( "CP",             "1")		# commonPlugs.cmd kludge to set up more tha
 # Sample Camera Settings
 #
 epicsEnvSet( "CAM",            "Sample:")
-epicsEnvSet( "CAM_IP",         "10.1.18.38")
+epicsEnvSet( "CAM_IP",         "10.1.18.29")
 epicsEnvSet( "PORT",           "PS2")
 epicsEnvSet( "Image",          "Image2")
 epicsEnvSet( "Edge",           "Edge2")
-epicsEnvSet( "NDARRAY_LENGTH", "1357200")
+epicsEnvSet( "NDARRAY_LENGTH", "4322232")
 epicsEnvSet( "NDPORT",         "PORT2")
-epicsEnvSet( "XSIZE",          "1388")
-epicsEnvSet( "YSIZE",          "1038")
+epicsEnvSet( "XSIZE",          "780")
+epicsEnvSet( "YSIZE",          "580")
 epicsEnvSet( "CP",             "2")		# commonPlugs.cmd kludge to set up more than one camera on the same ioc
 
 <lsProsilica.cmd

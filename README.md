@@ -1,4 +1,4 @@
-(DEPRECATED) LS-CAT-CamsIOC
+(DEPRECATED) cams-ioc
 ==============
 
 LS-CAT IOC video feeds 

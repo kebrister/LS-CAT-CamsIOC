@@ -1,5 +1,5 @@
 #! /bin/bash
-cd /usr/local/epics/LS-CAT-CamsIOC
+cd /usr/local/epics/cams-ioc
 hn=`hostname`
 head=`redis-cli hget config.${hn,,} HEAD`
 sn=`redis-cli hget ${head}.config.shortname VALUE`
